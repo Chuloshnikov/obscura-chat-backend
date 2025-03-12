@@ -3,6 +3,8 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import { ORIGIN, PORT } from "./config/env.js";
 
+import authRoutes from "./routes/auth.route.js";
+
 
 const app = express();
 const port = PORT || 8081;
@@ -22,6 +24,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+
+//Routes
+app.use("/api/auth", authRoutes);
 
 app.get('/', (req, res) => {
     res.send('Welcome to Obscura chat api v2.0!');
