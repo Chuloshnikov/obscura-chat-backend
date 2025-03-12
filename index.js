@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import { ORIGIN, PORT } from "./config/env.js";
 
 import authRoutes from "./routes/auth.route.js";
+import { connectDB } from "./database/mongodb.js";
 
 
 const app = express();
@@ -34,8 +35,7 @@ app.get('/', (req, res) => {
 
 const server = app.listen(port, async () => {
     console.log(`Server running on http://localhost:${port}`);
-
-   // await connectToDatabase();
+    await connectDB();
 });
 
 
