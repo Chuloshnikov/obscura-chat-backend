@@ -94,6 +94,5 @@ export const logOut = (req, res) => {
 
 
 export const updateProfile = (req, res) => {
-
-
+    
 }
