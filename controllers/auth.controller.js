@@ -62,7 +62,7 @@ export const logIn = async (req, res) => {
             return res.status(400).json({ message: "There is no user with this email" });
         }
 
-        isPasswordCorrect = await bcrypt.compare(password, user.password);
+        const isPasswordCorrect = await bcrypt.compare(password, user.password);
         if (!isPasswordCorrect) {
             return res.status(400).json({ message: "Invalid password" });
         }
@@ -83,5 +83,17 @@ export const logIn = async (req, res) => {
 
 
 export const logOut = (req, res) => {
-    res.send("logout route");
+    try {
+        res.cookie("jwt", "", { maxAge: 0 });
+        res.status(200).json({ message: "Logged out successfully" });
+    } catch (error) {
+        console.log("Error in logout controller", error.message);
+        res.status(500).json({ message: "Internal Server Error" });
+    }
+};
+
+
+export const updateProfile = (req, res) => {
+
+
 }
