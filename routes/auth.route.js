@@ -10,4 +10,6 @@ authRouter.post("/sign-out", logOut);
 
 authRouter.put("/update-profile", verifyToken, updateProfile);
 
+authRouter.get("/check", verifyToken, checkAuth);
+
 export default authRouter;
