@@ -29,7 +29,7 @@ app.use(cookieParser());
 
 //Routes
 app.use("/api/auth", authRoutes);
-app.use("/api/message", messagesRoutes);
+app.use("/api/messages", messagesRoutes);
 
 app.get('/', (req, res) => {
     res.send('Welcome to Obscura chat api v2.0!');

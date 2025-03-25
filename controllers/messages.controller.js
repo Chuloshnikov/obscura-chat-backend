@@ -10,7 +10,7 @@ export const getOtherUsers = async (req, res) => {
 
         res.status(200).json(filteredUsers);
     } catch (error) {
-        console.error("Error in getUsersSidebar: ", error.message);
+        console.error("Error in getOtherUsers: ", error.message);
         res.status(500).json({ error: "Internal server error" });
     }
 };
@@ -44,7 +44,7 @@ export const sendMessage = async (req, res) => {
         let imageUrl;
         if (image) {
             // Upload base64 image to cloudinary
-            const uploadResponse = await cloudinary.uploader(image);
+            const uploadResponse = await cloudinary.uploader.upload(image);
             imageUrl = uploadResponse.secure_url;
         }
 
