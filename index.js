@@ -9,7 +9,6 @@ import { connectDB } from "./database/mongodb.js";
 import { app, server } from "./lib/socket.js";
 
 
-app
 const port = PORT || 8081;
 
 
