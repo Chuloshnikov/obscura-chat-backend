@@ -14,7 +14,7 @@ const port = PORT || 8081;
 
 app.use(
     cors({
-        origin: ORIGIN, 
+        origin: ["https://obscura-chat.vercel.app", "http://localhost:5173"], 
         methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], 
         allowedHeaders: ['Content-Type', 'Authorization'], 
         credentials: true, 
